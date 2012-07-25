@@ -9,7 +9,7 @@ module OmniAuth
       option :client_options, {
         :site => 'https://api.bufferapp.com',
         :authorize_url => 'https://bufferapp.com/oauth2/authorize',
-        :token_url => 'https://api.cheddarapp.com/1/oauth2/token'
+        :token_url => 'https://api.bufferapp.com/1/oauth2/token'
       }
 
       uid { raw_info['id'] }
