@@ -9,7 +9,7 @@ module OmniAuth
       option :client_options, {
         :site => 'https://api.bufferapp.com',
         :authorize_url => 'https://bufferapp.com/oauth2/authorize',
-        :token_url => 'https://api.bufferapp.com/1/oauth2/token'
+        :token_url => 'https://api.bufferapp.com/1/oauth2/token.json'
       }
 
       uid { raw_info['id'] }
@@ -19,9 +19,9 @@ module OmniAuth
       end
 
       def raw_info
-        data = access_token.get('/1/user.json').parsed
-        puts data.inspect
-        @raw_info ||= data
+        access_token.options[:mode] = :query
+        access_token.options[:param_name] = :access_token
+        @raw_info ||= access_token.get('/1/user.json').parsed
       end
 
     end
