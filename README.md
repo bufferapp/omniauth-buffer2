@@ -6,29 +6,39 @@ Official OmniAuth Strategy for the Buffer OAuth2 API
 
 Add this line to your application's Gemfile:
 
-    gem 'omniauth-buffer2'
+```bash
+gem 'omniauth-buffer2'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install omniauth-buffer2
+```bash
+$ gem install omniauth-buffer2
+```
 
 ## Usage
 
 ### With Sinatra
 
-    use OmniAuth::Builder do
-      provider :buffer, ENV['BUFFER_KEY'], ENV['BUFFER_SECRET']
-    end
+```ruby
+use OmniAuth::Builder do
+  provider :buffer, ENV['BUFFER_KEY'], ENV['BUFFER_SECRET']
+end
+```
 
 ### With Rails
 
-    Rails.application.config.middleware.use OmniAuth::Builder do
-      provider :buffer, ENV['BUFFER_KEY'], ENV['BUFFER_SECRET']
-    end
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :buffer, ENV['BUFFER_KEY'], ENV['BUFFER_SECRET']
+end
+```
 
 ## Contributing
 
