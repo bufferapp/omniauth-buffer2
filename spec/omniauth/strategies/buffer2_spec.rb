@@ -26,4 +26,16 @@ describe OmniAuth::Strategies::Buffer do
     end
   end
 
+  context "response" do
+    it "should return the parsed /1/user response" do
+      access_token = double('AccessToken', :options => {})
+      parsed_response = double('ParsedResponse')
+      response = double('Response', :parsed => parsed_response)
+      subject.stub(:access_token).and_return(access_token)
+
+      access_token.should_receive(:get).with('/1/user.json').and_return(response)
+      subject.raw_info.should eq(parsed_response)
+    end
+  end
+
 end
